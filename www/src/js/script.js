@@ -1,4 +1,5 @@
-let url = "chocoala";let showPopup = 1;
+let url = 'chocoala';
+let showPopup = 1;
 let street = Shopify.checkout.billing_address.address1;
 let money = new Intl.NumberFormat(Shopify.country.toLowerCase(), { style: 'currency', currency: Shopify.checkout.presentment_currency }).format(Shopify.checkout.total_price);
 

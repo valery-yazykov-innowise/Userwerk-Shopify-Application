@@ -7,12 +7,14 @@ use Shopify\Clients\Rest;
 use Shopify\Utils;
 use Shopify\Webhooks\Registry;
 use Shopify\Webhooks\Topics;
-//use StoreOAuth\ShopifyHandler;
 
 class ShopifyApiClient extends ShopifyApiInit
 {
 
-    public static function auth(): void {
+    const PATH = 'src/js/script.js';
+
+    public static function auth(): void
+    {
         parent::init();
 
         $uri = OAuth::begin(
@@ -28,7 +30,8 @@ class ShopifyApiClient extends ShopifyApiInit
 
 
     // Callback registration //
-    public static function callback() {
+    public static function callback()
+    {
         parent::init();
 
         $session = OAuth::callback($_COOKIE, $_GET);
@@ -58,13 +61,7 @@ class ShopifyApiClient extends ShopifyApiInit
             // Webhook registered!
         }
 
-        //restart js file
-        $script = file_get_contents('src/js/script.js');
-        $data = explode(';',$script, 3);
-        $data[0] = sprintf('let url = "%s"', "chocoala");
-        $data[1] = sprintf('let showPopup = %s', 1);
-        $newScript = implode(';', $data);
-        file_put_contents('src/js/script.js', $newScript);
+        self::writeJs('chocoala', 1);
 
         // initialize ScripTag API
         $client = new Rest($session->getShop(), $session->getAccessToken());
@@ -78,10 +75,21 @@ class ShopifyApiClient extends ShopifyApiInit
 
 
         // Create the file with application token
-        file_put_contents( $_ENV['FILE_NAME'], $session->getAccessToken() );
+        file_put_contents($_ENV['FILE_NAME'], $session->getAccessToken());
 
         // Redirection after API install to own folder on the store
-        header("Location: " . Utils::getEmbeddedAppUrl($_GET['host']) );
+        header("Location: " . Utils::getEmbeddedAppUrl($_GET['host']));
 
+        exit();
+    }
+
+    public static function writeJs($url, $active)
+    {
+        $script = file_get_contents(self::PATH);
+        $data = explode(';', $script, 3);
+        $data[0] = sprintf("let url = '%s'", $url);
+        $data[1] = sprintf("\r\nlet showPopup = %d", $active);
+        $newScript = implode(';', $data);
+        file_put_contents(self::PATH, $newScript);
     }
 }

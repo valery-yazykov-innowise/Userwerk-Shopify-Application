@@ -1,19 +1,12 @@
 <?php
 
-//get data from form
-$show = $_POST['show-popup'];
-$url = $_POST['url'];
+require_once ("vendor/autoload.php");
 
-//retrieve data from js file
-$script = file_get_contents('src/js/script.js');
-$data = explode(';',$script, 3);
+use StoreOAuth\ShopifyApiClient;
 
-//format strings
-$data[0] = sprintf('let url = "%s"', $url ?: "chocoala");
-$data[1] = sprintf('let showPopup = %s', $show );
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-//data merging
-$newScript = implode(';', $data);
-file_put_contents('src/js/script.js', $newScript);
+ShopifyApiClient::writeJs($_POST['url'], $_POST['show-popup']);
 
 require_once 'formLoader.php';
