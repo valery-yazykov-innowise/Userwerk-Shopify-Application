@@ -72,7 +72,7 @@ class ShopifyApiClient extends ShopifyApiInit
             "script_tag" => [
                 "event" => "onload",
                 "display_scope" => "order_status",
-                "src" => $_ENV['SHOPIFY_APP_HOST_NAME'] . self::PATH_TO_JS_FILE,
+                "src" => $_ENV['SHOPIFY_APP_HOST_NAME'] . '/' . self::PATH_TO_JS_FILE,
             ],
         ]);
     }
