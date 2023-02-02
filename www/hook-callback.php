@@ -4,7 +4,7 @@ require_once ("vendor/autoload.php");
 use Shopify\Webhooks\Registry;
 use Shopify\Webhooks\Topics;
 use StoreOAuth\ShopifyApiInit;
-use StoreOAuth\ShopifyHandler;
+use StoreOAuth\ShopifyAppUninstalledHandler;
 
 // loading credentials from .env with $_ENV['PARAM'] - https://github.com/vlucas/phpdotenv
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -14,7 +14,7 @@ $dotenv->load();
 try {
 
     ShopifyApiInit::init();
-    Registry::addHandler(Topics::APP_UNINSTALLED, new ShopifyHandler());
+    Registry::addHandler(Topics::APP_UNINSTALLED, new ShopifyAppUninstalledHandler());
 
     $response = Registry::process(getallheaders(), file_get_contents('php://input'));
 
