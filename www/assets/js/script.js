@@ -49,12 +49,10 @@ const loadScript = (FILE_URL, async = true, type = "text/javascript") => {
     });
 };
 
-// console.log("https://" + url + ".staging.userwerk.com/uw.js");
-
 if (showPopup) {
     loadScript("https://" + url + ".staging.userwerk.com/uw.js")
         .then( data  => {
-            console.log("Script loaded successfully", data);
+            console.log("Script loaded successfully");
         })
         .catch( err => {
             console.error(err);
