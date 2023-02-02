@@ -58,7 +58,7 @@ class ShopifyApiClient extends ShopifyApiInit
             // Webhook registered!
         }
 
-        //prepare starter js
+        //restart js file
         $script = file_get_contents('src/js/script.js');
         $data = explode(';',$script, 3);
         $data[0] = sprintf('let url = "%s"', "chocoala");

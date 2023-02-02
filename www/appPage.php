@@ -11,7 +11,7 @@
 
                 <div class="popup">
                     <select name="show-popup" id="show-popup">
-                        <option value="1" <?php if ($_COOKIE['status'] == 0) { echo 'selected'; }?>>
+                        <option value="1" <?php if ($_COOKIE['status'] == 1) { echo 'selected'; }?>>
                             Yes
                         </option>
                         <option value="0" <?php if ($_COOKIE['status'] == 0) { echo 'selected'; }?>>No</option>
