@@ -21,7 +21,7 @@ class ShopifyApiClient extends ShopifyApiInit
 
         $uri = OAuth::begin(
             $_ENV['STORE_NAME'],
-            "authCallback.php",
+            "authcallback.php",
             true
         );
 
@@ -52,7 +52,7 @@ class ShopifyApiClient extends ShopifyApiInit
     public static function registerAppUninstalledHook(Session $session): void
     {
         $response = Registry::register(
-            'hookCallback.php',
+            'hookcallback.php',
             Topics::APP_UNINSTALLED,
             $session->getShop(),
             $session->getAccessToken(),

@@ -11,4 +11,4 @@ $dotenv->load();
 
 ShopifyApiClient::updateSettings($_POST['url'], $_POST['show-popup']);
 
-require_once 'appPage.php';
+require_once 'apppage.php';

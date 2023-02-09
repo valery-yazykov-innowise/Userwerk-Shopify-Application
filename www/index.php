@@ -13,5 +13,5 @@ if (!file_exists($_ENV['FILE_NAME'])) {
     ShopifyApiClient::auth();
 } else {
     ShopifyApiClient::initializeSettings();
-    require_once 'appPage.php';
+    require_once 'apppage.php';
 }
