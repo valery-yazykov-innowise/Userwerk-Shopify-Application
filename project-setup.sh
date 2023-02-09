@@ -36,3 +36,15 @@ FILE_NAME=shopify-token.txt
 EOF
 
 docker exec -it php-apache chown -R www-data:www-data /var/www/
+
+clear
+
+echo Fill the fields in the Partners Shopify settings with these fields
+echo 'App URL'
+echo ''
+echo $shopify_app_host_name
+echo ''
+echo 'Allowed redirection URL(s)'
+echo ''
+echo $shopify_app_host_name'/hookcallback.php'
+echo $shopify_app_host_name'/authcallback.php'
