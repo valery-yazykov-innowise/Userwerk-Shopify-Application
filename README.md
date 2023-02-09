@@ -9,9 +9,12 @@
 
 ### Installation Process
 
+### 1 . Obtaining access to customer information
+
 Plugin works out of the box with Shopify.checkout object. But if you want to use webhooks also, go to partners.shopify.com, then App setup -> Protected customer data access and check for have all necessary permissions to receive and process clients personal data.
 
-Then go to the folder where docker-compose.yml stores and run "docker-compose up", then go inside www/ and run "composer install". After that all dependencies will be created.
+### 2. Preparing the environment to start a project
+Go to the folder where docker-compose.yml stores and run "docker-compose up", then go inside www/ and run "composer install". After that all dependencies will be created.
 
 Next you need to run ngrok - "ngrok http 8080".
 
@@ -41,6 +44,8 @@ Next you need to go to the docker container - "docker exec -it php-apache bash".
 After these steps, enter this command and give permission to modify files - "chown -R www-data:www-data /var/www/".
 Then write "exit" and exit from container.
 
+### 3. Changing fields in Shopify Partners app settings
+
 After these steps, you need to fill in the required fields in App Setup (Shopify Partners). To do this, go to your app settings (Shopify Partners -> Apps -> Your App -> App Setup -> URLs).
 
 Example fields in App Setup:
@@ -52,7 +57,7 @@ Allowed Redirection URL(s) = https://40-31v1-148-2509.eu.ngrok.io/hookcallback.p
 ```
 
 - App URL = Ngrok -> Forwarding -> First Value.
-- Allowed Redirection = Ngrok -> Forwarding -> First Value /hookcallback.php and Ngrok -> Forwarding -> First Value /authcallback.php.
+- Allowed Redirection URL(s) = Ngrok -> Forwarding -> First Value /hookcallback.php and Ngrok -> Forwarding -> First Value /authcallback.php.
 
 
 After host your plugin or run ngrok don't forget change URLs.
