@@ -1,4 +1,4 @@
-## USERWERK Shopify Popup Plugin
+# USERWERK Shopify Popup Plugin
 
 ### Requirements
 
@@ -7,7 +7,35 @@
 - Docker and Docker Compose
 - Ngrok
 
-### Installation Process
+## Automatic installation
+
+### 1. Retrieving project files
+
+You need to clone this repository - "git clone https://github.com/romartiny/Shopproj.git" and switch to the desired branch "git checkout server-test".
+
+### 2. Running the script for quick setup
+
+"sudo sh project-setup.sh" - runs the installation and autofills the data in the .env.
+
+- SHOPIFY_API_KEY = Partners Shopify -> Apps -> Your App -> Overview -> Client ID.
+- SHOPIFY_API_SECRET = Partners Shopify -> Apps -> Your App -> Overview -> Client Secret.
+- SHOPIFY_APP_HOST_NAME = Ngrok -> Forwarding -> First Value.
+- STORE_NAME = Shopify Admin -> Settings.
+
+### 3. Adding data to Shopify Partners settings
+
+When the installation is complete, transfer the data from the command line to the App setup.
+
+```
+App URL = https://40-31v1-148-2509.eu.ngrok.io
+Allowed Redirection URL(s) = https://40-31v1-148-2509.eu.ngrok.io/hookcallback.php
+                             https://40-31v1-148-2509.eu.ngrok.io/authcallback.php
+```
+
+- App URL = Ngrok -> Forwarding -> First Value.
+- Allowed Redirection URL(s) = Ngrok -> Forwarding -> First Value /hookcallback.php and Ngrok -> Forwarding -> First Value /authcallback.php.
+
+## Manual installation
 
 ### 1 . Obtaining access to customer information
 
