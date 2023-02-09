@@ -1,23 +1,36 @@
 #!/bin/bash
 
 docker compose up --build
+
+clear
+
 docker compose up -d
+
+clear
 
 echo Enter your Shopify Api Key:
 
 read shopify_api_key
 
+clear
+
 echo Enter your Shopify Api Secret:
 
 read shopify_api_secret
+
+clear
 
 echo Enter your Shopify App Host Name:
 
 read shopify_app_host_name
 
+clear
+
 echo Enter your Shopify Store Name:
 
 read shopify_store_name
+
+clear
 
 cd www
 
@@ -40,11 +53,10 @@ docker exec -it php-apache chown -R www-data:www-data /var/www/
 clear
 
 echo Fill the fields in the Partners Shopify settings with these fields
-echo 'App URL'
 echo ''
-echo $shopify_app_host_name
+echo 'App URL:'
+echo '-> '$shopify_app_host_name
 echo ''
-echo 'Allowed redirection URL(s)'
-echo ''
-echo $shopify_app_host_name'/hookcallback.php'
-echo $shopify_app_host_name'/authcallback.php'
+echo 'Allowed redirection URL(s):'
+echo '-> '$shopify_app_host_name'/hookcallback.php'
+echo '-> '$shopify_app_host_name'/authcallback.php'
