@@ -1,7 +1,7 @@
 # ignore this folder(s)
 .vscode/
 .idea/
-#www/vendor
+www/vendor
 
 # ignore this file(s)
 www/.env
