@@ -1,13 +1,19 @@
 version: '3.9'
 
 services:
-  php-apache:
+  app:
     build:
-      context: ./php-apache
-      dockerfile: Dockerfile
-    volumes:
-      - ./www/:/var/www/html/
-      - .env:/var/www/html/.env
+      context: ../../../Downloads
+      dockerfile: Dockerfile1
     ports:
       - "8080:80"
-    container_name: php-apache
+    container_name: app
+
+  ngrok:
+    image: wernight/ngrok
+    environment:
+      - NGROK_PROTOCOL=http
+      - NGROK_PORT=app:80
+    ports:
+      - "4040:4040"
+    container_name: ngrok
