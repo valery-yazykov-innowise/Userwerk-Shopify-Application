@@ -13,7 +13,7 @@ class ShopifyApiClient extends ShopifyApiInit
 {
     const PATH_TO_JS_FILE = 'assets/js/script.js';
     const DOMAIN_NAME = 'chocoala';
-    const ENABLE_USERWERK = 1;
+    const ENABLE_USERWERK = 0;
 
     public static function auth(): void
     {
