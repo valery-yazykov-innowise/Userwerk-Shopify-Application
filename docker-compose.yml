@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: ./php-apache
-      dockerfile: Dockerfile1
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
     container_name: app
