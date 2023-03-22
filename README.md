@@ -100,7 +100,7 @@ for "chocoala.staging.userwerk.com/uw.js"
 
 Domain will be "chocoala"
 ```
-Default value of domain - "chocoala", of popup visibility - true
+Default value of domain - "chocoala", of popup visibility - false
 
 
 ## References
